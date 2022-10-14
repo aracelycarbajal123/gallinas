@@ -52,7 +52,7 @@ search
           <label for="password_confirmation" class="form-label">Confirmar Contraseña</label>
           <input  type="password" name="password_confirmation" class="form-control" id="password">
       </div>
-<h1>{{$user}}</h1>
+
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="rol">Options</label>
@@ -60,11 +60,11 @@ search
         <select name="rol" class="custom-select" id="rol">
           <option selected>Elija un Rol...</option>
           <option value="1">Beneficiario</option>
-          @if ($user=='admin')
+          {{-- @if ($user=='admin') --}}
           
           <option value="2">Digitador</option>
           <option value="3">Admin</option>
-          @endif
+          {{-- @endif --}}
           
          
         </select>

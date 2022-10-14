@@ -27,8 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user=Auth()->user()->rol;
-        return view('users.create',['user'=>$user]);
+        
+        return view('users.create');
     }
 
     /**
