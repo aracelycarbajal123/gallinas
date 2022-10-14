@@ -29,7 +29,8 @@ class LoginController extends Controller
     public function register(){
 
         if(!auth()->user()){
-            return back()->with('msg','No tienes permisos de admin');
+            return view('auth.register');
+
         }
         if(auth()->user()->rol =='admin'|| auth()->user()->rol=='digitador'||auth()->user()->rol=='beneficiario' ){
             return redirect()->route('dashboard');

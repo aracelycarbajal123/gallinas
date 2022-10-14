@@ -58,7 +58,10 @@
           <img src="{{asset('dist/img/munilogo.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
+          @auth
           <a href="#" class="d-block"> {{ auth()->user()->name  }} </a>
+            
+          @endauth
           <form action="{{route('logout')}}" method="POST" class="mt-2"> 
             @csrf
             <button type="submit" class="btn btn-outline-secondary btn-sm"> Cerrar sesion </button>
@@ -98,6 +101,7 @@
 
 
               {{-- //menu beneficiario --}}
+              @auth
               @if (auth()->user()->rol=='beneficiario' )
               <li class="nav-item">
                 <a href="./index.html" class="nav-link">
@@ -162,6 +166,9 @@
 
 
               @endif
+              
+                
+              @endauth
               
            
               
