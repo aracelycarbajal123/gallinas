@@ -84,7 +84,9 @@ class ComunidadController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $comunidad=Comunidad::findorfail($id);
+        return view('comunidad.edit', compact('comunidad'));
     }
 
     /**
@@ -96,7 +98,25 @@ class ComunidadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comunidad=Comunidad::findOrFail($id);
+
+        $request->validate([
+
+            'nombre'=>['required','string', 'max:55'],
+            'localizacion'=>['required', 'string'],
+           
+        ]);
+
+        try{
+            $comunidad->update($request->all());
+            return redirect()->route('comunidades')
+                    ->with('success', 'Comunidad Actualizada');
+            
+        }
+        catch(\Throwable $th){
+            return redirect()->route('comunidad')
+            ->with('success', $th);
+        }
     }
 
     /**
@@ -107,6 +127,11 @@ class ComunidadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comunidad=Comunidad::findOrFail($id);
+        $comunidad->delete();
+
+
+        return redirect()->route('comunidades')
+                    ->with('success', 'Comunidad Eliminada Correctamente');
     }
 }

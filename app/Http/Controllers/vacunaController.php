@@ -62,7 +62,7 @@ class vacunaController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -73,7 +73,8 @@ class vacunaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vacuna=vacuna::findorfail($id);
+        return view('vacuna.edit',compact(['vacuna']));
     }
 
     /**
@@ -85,7 +86,26 @@ class vacunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vacuna=vacuna::findOrFail($id);
+        $request->validate([
+            'Nombre_vacuna'=>['required', 'string'],
+            'Fecha_ingresovacuna'=>['required', 'date'],
+            'Stockvacuna' =>['required', 'string'],
+            'Lote' =>['required', 'string'],
+            'FechaVencimiento' =>['required', 'date'],
+        ]);
+
+        try{
+            $vacuna->update($request->all());
+            return redirect()->route('vacuna')
+              ->with('success', 'vacuna actualizada');
+        }
+
+        catch(\Throwable $th){
+            return redirect()->route('vacuna')
+                ->with('success', $th);
+        }
+
     }
 
     /**
@@ -96,7 +116,12 @@ class vacunaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vacuna=vacuna::findOrFail($id);
+        $vacuna->delete();
+
+        return redirect()->route('vacuna')
+            ->with('success', 'Vacuna Eliminada Correctamente');
+
     }
 }
 

@@ -75,7 +75,10 @@ class PlancalendariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comunidad=Comunidad::all();
+        $vacuna=vacuna::all();
+        $plancalendarios=Plancalendarios::findorfail($id);
+        return view('plancalendarios.edit',compact(['plancalendarios','comunidad','vacuna']));
     }
 
     /**
@@ -87,7 +90,26 @@ class PlancalendariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $plancalendarios=Plancalendarios::findOrFail($id);
+        $request->validate([
+            'FechaVacunacion'=>['required', 'date'],
+            'Estado'=>['required', 'string', 'max:255'],
+            'idComunidad'=>['required'],
+            'idvacuna'=>['required'],
+
+        ]);
+
+        try{
+            $plancalendarios->update($request->all());
+            return redirect()->route('plancalendarios')
+                ->with('success', 'Plan Actualizado');
+        }
+
+        catch(\Throwable $th){
+            return redirect()->route('plancalendarios')
+                ->with('success', $th);
+        }
+    
     }
 
     /**
@@ -98,6 +120,11 @@ class PlancalendariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plancalendarios=Plancalendarios::findOrFail($id);
+        $plancalendarios->delete();
+
+        return redirect()->route('plancalendarios')
+            ->with('success', 'Plan Eliminado Correctamente');
+
     }
 }

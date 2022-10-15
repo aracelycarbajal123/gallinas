@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aves;
+use App\Models\Comunidad;
+use App\Models\Control;
+use App\Models\Person;
+use App\Models\vacuna;
 use Illuminate\Http\Request;
 
-class AvesController extends Controller
+class ControlController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +18,9 @@ class AvesController extends Controller
      */
     public function index()
     {
-        $aves=Aves::all();
-
-        return view('aves.index',['Aves'=>$aves]);
+        $control=Control::all();
+        return view('control.index',['control'=>$control]);
+        
     }
 
     /**
@@ -26,7 +30,13 @@ class AvesController extends Controller
      */
     public function create()
     {
-        return view('aves.create');
+        $person=Person::all();
+        $comunidades=Comunidad::all();
+        $vacuna=vacuna::all();
+        $aves=Aves::all();
+        
+
+          return view('control.create',['vacuna'=>$vacuna, 'comunidades'=>$comunidades, 'person'=>$person, 'aves'=>$aves]);
     }
 
     /**
@@ -37,12 +47,25 @@ class AvesController extends Controller
      */
     public function store(Request $request)
     {
-        $aves=Aves::create([
-            'NombreAve'=>$request->NombreAve,
-            'Activo'=>'SI',
-
+        $control=Control::create([
+            'idperson'=>$request->idperson,
+            'idComunidad'=>$request->idComunidad,
+            'idvacuna'=>$request->idvacuna,
+            'idaves'=>$request->idaves,
+            'cantidad'=>$request->cantidad,
         ]);
-        return redirect()->route('aves');
+        $idvacuna=$request->idvacuna;
+        //como hacer para actualizar el stock de vacunas
+        $vacuna=vacuna::findOrFail($idvacuna);
+
+        //dd($vacuna);
+        $totalTem=$vacuna->Stockvacuna ;
+        $cantidad=$request->cantidad;
+        $resultado=intval($totalTem-$cantidad);
+
+        $vacuna->Stockvacuna=$resultado;
+        $vacuna->save();
+        return redirect()->route('control');
     }
 
     /**
@@ -64,10 +87,7 @@ class AvesController extends Controller
      */
     public function edit($id)
     {
-        
-        $aves=Aves::findorfail($id);
-        return view('aves.edit', compact('aves'));
-        
+        //
     }
 
     /**
@@ -79,23 +99,7 @@ class AvesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $aves=Aves::findOrFail($id);
-        $request->validate([
-            'NombreAve'=>['string', 'max:255'],
-            'Activo'=>['string'],
-
-        ]);
-        
-        try{
-            $aves->update($request->all());
-            return redirect()->route('aves')
-                    ->with('success', 'Ave Actualizada');
-        }
-
-        catch(\Throwable $th){
-            return redirect()->route('aves')
-            ->with('success', $th);
-        }
+        //
     }
 
     /**
@@ -106,11 +110,6 @@ class AvesController extends Controller
      */
     public function destroy($id)
     {
-        $aves=Aves::findOrFail($id);
-        $aves->delete();
-
-        return redirect()->route('aves')
-            ->with('success', 'Ave Eliminada Correctamente');
-        
+        //
     }
 }

@@ -29,4 +29,8 @@ class Person extends Model
       return  $this->belongsTo(Comunidad::class, 'idComunidad');
     }
 
+    public function control(){
+      return $this->hasMany(Control::class);
+  }
+
 }

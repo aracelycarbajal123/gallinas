@@ -125,7 +125,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{route('control')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Control de asistencia de vacunacion</p>
                 </a>

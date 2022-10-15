@@ -22,4 +22,8 @@ class vacuna extends Model
     public function plancalendarios(){
         return $this->hasMany(Plancalendarios::class);
     }
+
+    public function control(){
+        return $this->hasMany(Control::class);
+    }
 }

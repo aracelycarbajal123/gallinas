@@ -76,7 +76,9 @@ class personController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comunidad=Comunidad::all();
+        $person=Person::findorfail($id);
+        return view('person.edit',compact(['person','comunidad']));
     }
 
     /**
@@ -88,7 +90,31 @@ class personController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $person=Person::findOrFail($id);
+        $request->validate([
+            'Nombres'=> ['required', 'string', 'max:255'],
+            'Apellidos'=>['required', 'string', 'max:255'],
+            'Dpi'=> ['required', 'string', 'max:255'],
+            'Telefono'=> ['required', 'string', 'max:255'],
+            'Email'=>['required', 'string', 'max:255'],
+            'FechaNacimiento'=>['required', 'date', 'max:255'],
+            'Activo'=>['string'],
+            'idComunidad'=>['required'],
+            
+
+        ]);
+
+        try{
+            $person->update($request->all());
+            return redirect()->route('person')
+                ->with('success', 'persona actualizada');
+        }
+
+        catch(\Throwable $th){
+            return redirect()->route('person')
+            ->with('success', $th);
+        }
+
     }
 
     /**
@@ -99,6 +125,12 @@ class personController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $person=Person::findOrFail($id);
+        $person->delete();
+
+        return redirect()->route('person')
+        ->with('success', 'Persona Eliminada Correctamente');
+       
+
     }
 }

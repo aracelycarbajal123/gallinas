@@ -11,6 +11,11 @@ search
   </div>
   <div class="col-lg-6 d-flex justify-content-end">
 <a href="{{route('comunidad.create')}}" class="btn btn-info text-white">Nueva comunidad</a>
+@if ($message = Session:: get('success'))
+   <div class="alert alert-success">
+    <p>{{$message }}</p>
+   </div>
+   @endif
   </div>
 </div>
 <table class="table table-bordered mt-3">
@@ -37,8 +42,12 @@ search
       <td>{{ $comunidad->localizacion}}</td>
       <td>{{ $comunidad->estado}}</td>
       <td class="d-flex justify-content-around">
-        <a href="#"> <i class="fas fa-pencil-alt text-warning"></i></a>
-        <a href="#"> <i class="fas fa-trash-alt text-danger"></i></a>
+        <a href="{{route('comunidad.edit', $comunidad->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
+        <form action="{{route('comunidad.destroy', $comunidad->id)}}" method="POST">
+          @csrf 
+          {{method_field('delete')}}
+          <button type="submit"> <i class="fas fa-trash-alt text-red-500"></i>Delete</button>
+        </form>
 
       </td>
 

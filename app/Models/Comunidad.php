@@ -27,6 +27,9 @@ class Comunidad extends Model
         return $this->hasMany(Plancalendarios::class);
     }
 
+    public function control(){
+        return $this->hasMany(Control::class);
+    }
    
 
     

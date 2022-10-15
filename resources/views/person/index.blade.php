@@ -48,12 +48,16 @@ search
       <td>{{ $pers->Activo}}</td>
       <td>{{ $pers->comunidad->nombre}}</td>
       <td>{{ $pers->Tipopersona}}</td>
-     
-      <td class="d-flex justify-content-around">
-        <a href="#"> <i class="fas fa-pencil-alt text-warning"></i></a>
-        <a href="#"> <i class="fas fa-trash-alt text-danger"></i></a>
 
-      </td>
+      <td class="d-flex justify-content-around">
+        <a href="{{route('person.edit', $pers->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
+        <form action="{{route('person.destroy', $pers->id)}}" method="POST">
+          @csrf 
+          {{method_field('delete')}}
+          <button type="submit"> <i class="fas fa-trash-alt text-red-500"></i>Delete</button>
+        </form>
+     
+    
 
 
 

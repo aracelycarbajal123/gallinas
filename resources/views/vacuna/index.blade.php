@@ -40,10 +40,14 @@ search
       <td>{{ $vacuna->Stockvacuna}}</td>
       <td>{{ $vacuna->Lote}}</td>
       <td>{{ $vacuna->FechaVencimiento}}</td>
-      <td class="d-flex justify-content-around">
-        <a href="#"> <i class="fas fa-pencil-alt text-warning"></i></a>
-        <a href="#"> <i class="fas fa-trash-alt text-danger"></i></a>
 
+      <td class="d-flex justify-content-around">
+        <a href="{{route('vacuna.edit', $vacuna->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
+        <form action="{{route('vacuna.destroy', $vacuna->id)}}" method="POST">
+          @csrf 
+          {{method_field('delete')}}
+          <button type="submit"> <i class="fas fa-trash-alt text-red-500"></i>Delete</button>
+        </form>
       </td>
 
 

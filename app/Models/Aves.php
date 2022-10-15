@@ -12,5 +12,10 @@ class Aves extends Model
     protected $fillable = [
         'NombreAve',
         'Activo',
-    ];  
+ 
+    ];
+    
+    public function control(){
+        return $this->hasMany(Control::class);
+    }
 }
