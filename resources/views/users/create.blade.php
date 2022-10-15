@@ -59,11 +59,11 @@ search
         </div>
         <select name="rol" class="custom-select" id="rol">
           <option selected>Elija un Rol...</option>
-          <option value="1">Beneficiario</option>
+          <option value="beneficiario">Beneficiario</option>
           {{-- @if ($user=='admin') --}}
           
-          <option value="2">Digitador</option>
-          <option value="3">Admin</option>
+          <option value="digitador">Digitador</option>
+          <option value="admin">Admin</option>
           {{-- @endif --}}
           
          

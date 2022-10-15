@@ -69,6 +69,7 @@ class LoginController extends Controller
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
             'username'=>$request->username,
+            'rol'=>$request->rol,
 
         ]);
 
