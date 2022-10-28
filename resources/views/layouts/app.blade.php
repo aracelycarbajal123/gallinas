@@ -101,7 +101,7 @@
 
 
               {{-- //menu beneficiario --}}
-              @auth
+             {{-- // @auth
               @if (auth()->user()->rol=='beneficiario' )
               <li class="nav-item">
                 <a href="./index.html" class="nav-link">
@@ -109,9 +109,9 @@
                   <p>Ver mis aves</p>
                 </a>
               </li>
-              @endif
+              @endif--}}
               {{-- //si el usuario es admin y digitador --}}
-              @if (auth()->user()->rol=='admin' || auth()->user()->rol=='digitador')
+             {{-- // @if (auth()->user()->rol=='admin' || auth()->user()->rol=='digitador')--}}
              
               <li class="nav-item">
                 <a href="{{route('vacuna')}}" class="nav-link">
@@ -133,11 +133,11 @@
                 </a>
               </li>
               {{-- //si el usuario es admin y digitador --}}
-              @endif
+              {{-- // @endif--}}
 
               {{-- //solo administrador --}}
             
-              @if (auth()->user()->username=='admin2')
+             {{-- // @if (auth()->user()->username=='admin2') --}}
              <li class="nav-item">
                 <a href="{{route('plancalendarios')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -158,9 +158,8 @@
                   <p>Aves</p>
                 </a>
               </li>
+              @endif 
 
-
-              @endif
               
                 
               @endauth
