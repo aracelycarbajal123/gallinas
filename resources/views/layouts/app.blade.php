@@ -61,12 +61,13 @@
           @auth
           <a href="#" class="d-block"> {{ auth()->user()->name  }} </a>
             
-          @endauth
+        
           <form action="{{route('logout')}}" method="POST" class="mt-2"> 
             @csrf
             <button type="submit" class="btn btn-outline-secondary btn-sm"> Cerrar sesion </button>
           
           </form>
+          @endauth
         </div>
       </div>
 
