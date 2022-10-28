@@ -17,7 +17,6 @@ class Person extends Model
         'Apellidos',
         'Dpi',
         'Telefono',
-        'Email',
         'FechaNacimiento',
         'Activo',
         'idComunidad',

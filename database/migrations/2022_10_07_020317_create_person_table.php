@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('Apellidos');
             $table->string('Dpi');
             $table->string('Telefono');
-            $table->string('Email');
             $table->date('FechaNacimiento');
             $table->string('Activo');
             $table->foreignId('idComunidad')->constrained('comunidad');

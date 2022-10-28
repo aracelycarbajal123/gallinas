@@ -1,7 +1,7 @@
 @extends('layouts.app', ['activePage' => 'person', 'titlePage' => __('person')])
 
 @section('header')
-<h2>LISTADO DE PERSONASs</h2>
+<h2>LISTADO DE PERSONAS</h2>
 @endsection
 
 @section('content')
@@ -21,11 +21,10 @@ search
       <th scope="col">Apellidos</th>
       <th scope="col">Dpi</th>
       <th scope="col">Telefono</th>
-      <th scope="col">Email</th>
-      <th scope="col">FechaNacimiento</th>
+      <th scope="col">Fecha de Nacimiento</th>
       <th scope="col">Activo</th>
-      <th scope="col">idComunidad</th>
-      <th scope="col">Tipopersona</th>
+      <th scope="col">Comunidad</th>
+      <th scope="col">Tipo de persona</th>
       
       <th scope="col">Opciones</th>
 
@@ -43,7 +42,6 @@ search
       <td>{{ $pers->Apellidos}}</td>
       <td>{{ $pers->Dpi}}</td>
       <td>{{ $pers->Telefono}}</td>
-      <td>{{ $pers->Email}}</td>
       <td>{{ $pers->FechaNacimiento}}</td>
       <td>{{ $pers->Activo}}</td>
       <td>{{ $pers->comunidad->nombre}}</td>

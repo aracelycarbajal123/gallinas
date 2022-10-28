@@ -39,7 +39,7 @@ search
 
 
 <div class="mb-3">
-    <label for="FechaVacunacion" class="form-label">FechaVacunacion</label>
+    <label for="FechaVacunacion" class="form-label">Fecha de Vacunacion</label>
     <input type="date" class="form-control"  name="FechaVacunacion"
     value="{{$plancalendarios->FechaVacunacion}}"  >
    </div>

@@ -22,10 +22,10 @@ search
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">FechaVacunacion</th>
+      <th scope="col">Fecha de vacunacion</th>
       <th scope="col">Estado</th>
-      <th scope="col">idComunidad</th>
-      <th scope="col">idvacuna</th>
+      <th scope="col">Comunidad</th>
+      <th scope="col">vacuna</th>
       
       <th scope="col">Opciones</th>
 

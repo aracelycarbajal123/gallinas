@@ -52,10 +52,6 @@ search
     <input value="{{old('text')}}" type="text" class="form-control" id="text" name="Telefono" >
   </div>
    
-  <div class="mb-3">
-    <label for="Email" class="form-label">Email</label>
-    <input value="{{old('text')}}" type="text" class="form-control" id="text" name="Email" >
-</div>
 
 <div class="mb-3">
     <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>

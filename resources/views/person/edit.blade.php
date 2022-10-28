@@ -60,12 +60,6 @@ search
     value="{{$person->Telefono}}" >
   </div>
    
-  <div class="mb-3">
-    <label for="Email" class="form-label">Email</label>
-    <input  type="text" class="form-control" id="text" name="Email"
-    value="{{$person->Email}}" >
-</div>
-
 <div class="mb-3">
     <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
     <input  type="date" class="form-control" id="date" name="FechaNacimiento"
