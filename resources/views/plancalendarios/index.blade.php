@@ -30,7 +30,7 @@ search
       <th scope="col">Opciones</th>
 
 
-    </tr>
+    </tr>.
   </thead>m
   <tbody>
 

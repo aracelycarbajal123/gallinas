@@ -28,17 +28,17 @@ search
   </thead>
   <tbody>
 
-    @foreach ($users as $user )
+    @foreach ($users as $key=> $user )
       
    
     <tr>
-      <th scope="row">{{ $user->id}}</th>
+      <th scope="row">{{ $key}}</th>
       <td>{{ $user->name}}</td>
       <td>{{ $user->username}}</td>
       <td>{{ $user->email}}</td>
       <td>{{ $user->rol}}</td>
       <td class="d-flex justify-content-around">
-        <a href="#"> <i class="fas fa-pencil-alt text-warning"></i></a>
+        <a href="{{route('users.edit', $user->id)}}"> <i class="fas fa-pencil-alt text-warning"></i></a>
         <a href="#"> <i class="fas fa-trash-alt text-danger"></i></a>
 
       </td>

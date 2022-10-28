@@ -16,7 +16,7 @@ class PlancalendariosController extends Controller
      */
     public function index()
     {
-        $plancalendarios=Plancalendarios::all();
+        $plancalendarios=Plancalendarios::where('estado','activo')->get();
        
         
         return view('plancalendarios.index',['plancalendarios'=>$plancalendarios]);
@@ -121,7 +121,11 @@ class PlancalendariosController extends Controller
     public function destroy($id)
     {
         $plancalendarios=Plancalendarios::findOrFail($id);
-        $plancalendarios->delete();
+        $plancalendarios->Estado='no';
+        $plancalendarios->save();
+
+    
+
 
         return redirect()->route('plancalendarios')
             ->with('success', 'Plan Eliminado Correctamente');

@@ -4,7 +4,7 @@
 <div class="container" style="height: auto;">
   <div class="row align-items-center">
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-      <form class="form" method="POST" action="{{ route('register') }}">
+      <form class="form" method="POST" action="{{ route('register.store') }}">
         @csrf
 
         <div class="card card-login card-hidden mb-3">
@@ -28,7 +28,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                      <i class="material-icons">face</i>
+                      <i class="material-icons">Nombre</i>
                   </span>
                 </div>
                 <input type="text" name="name" class="form-control" placeholder="{{ __('Name...') }}" value="{{ old('name') }}" required>
@@ -54,11 +54,26 @@
                 </div>
               @endif
             </div>
+            <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }} mt-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons">usuario</i>
+                  </span>
+                </div>
+                <input type="username" name="username" class="form-control" placeholder="{{ __('username...') }}" value="{{ old('username') }}" required>
+              </div>
+              @if ($errors->has('username'))
+                <div id="username-error" class="error text-danger pl-3" for="username" style="display: block;">
+                  <strong>{{ $errors->first('username') }}</strong>
+                </div>
+              @endif
+            </div>
             <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
+                    <i class="material-icons">Contraseña</i>
                   </span>
                 </div>
                 <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" required>
@@ -73,7 +88,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
+                    <i class="material-icons">Confirmar</i>
                   </span>
                 </div>
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password...') }}" required>
@@ -84,14 +99,21 @@
                 </div>
               @endif
             </div>
-            <div class="form-check mr-auto ml-3 mt-3">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" id="policy" name="policy" {{ old('policy', 1) ? 'checked' : '' }} >
-                <span class="form-check-sign">
-                  <span class="check"></span>
-                </span>
-                {{ __('I agree with the ') }} <a href="#">{{ __('Privacy Policy') }}</a>
-              </label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="rol">Options</label>
+              </div>
+              <select name="rol" class="custom-select" id="rol">
+                <option selected>Elija un Rol...</option>
+                <option value="beneficiario">Beneficiario</option>
+                {{-- @if ($user=='admin') --}}
+                
+                <option value="digitador">Digitador</option>
+                <option value="admin">Admin</option>
+                {{-- @endif --}}
+                
+               
+              </select>
             </div>
           </div>
           <div class="card-footer justify-content-center">

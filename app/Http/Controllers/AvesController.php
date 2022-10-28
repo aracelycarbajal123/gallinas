@@ -14,9 +14,11 @@ class AvesController extends Controller
      */
     public function index()
     {
-        $aves=Aves::all();
+        $aves=Aves::where('activo','si')->get();
 
         return view('aves.index',['Aves'=>$aves]);
+
+        
     }
 
     /**
@@ -107,10 +109,13 @@ class AvesController extends Controller
     public function destroy($id)
     {
         $aves=Aves::findOrFail($id);
-        $aves->delete();
+        $aves->activo='no';
+        $aves->save();
 
         return redirect()->route('aves')
             ->with('success', 'Ave Eliminada Correctamente');
+
+    
         
     }
 }

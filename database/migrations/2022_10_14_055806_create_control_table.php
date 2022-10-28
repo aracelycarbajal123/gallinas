@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreignId('idvacuna')->constrained('vacuna');
             $table->foreignId('idaves')->constrained('aves');
             $table->integer('cantidad');
+            $table->string('activo');
+
             $table->timestamps();
         });
     }

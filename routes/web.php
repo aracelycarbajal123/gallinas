@@ -49,11 +49,14 @@ Route::get('/aves', [AveController::class, 'index'])->name('aves');
 
 //register
 Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/register', [LoginController::class, 'store']);
+Route::post('/register', [LoginController::class, 'store'])->name('register.store');
 
 //user
 Route::get('/users', [UserController::class,'index'])->name('users');
 Route::get('/users/create', [UserController::class,'create'])->name('users.create');
+Route::get('/users/{id}/edit', [UserController::class,'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class,'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class,'destroy'])->name('users.destroy');
 
 //comunidades
 Route::get('/comunidades', [ComunidadController::class,'index'])->name('comunidades');
@@ -98,6 +101,10 @@ Route::delete('/Plancalendarios/{id}',[PlancalendariosController::class,'destroy
 Route::get('/control',[ControlController::class,'index'])->name('control');
 Route::get('/control/create',[ControlController::class,'create'])->name('control.create');
 Route::post('/control/create',[ControlController::class,'store'])->name('control.store');
+Route::get('/control/{id}/edit',[ControlController::class,'edit'])->name('control.edit');
+Route::put('/control/{id}',[ControlController::class,'update'])->name('control.update');
+Route::delete('/control/{id}',[ControlController::class,'destroy'])->name('control.destroy');
+
 
 
 

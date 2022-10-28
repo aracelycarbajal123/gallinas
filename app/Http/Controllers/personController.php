@@ -15,9 +15,8 @@ class personController extends Controller
      */
     public function index()
     {
-        $person=Person::all();
+        $person=Person::where('activo','si')->get();
        
-        
         return view('person.index',['person'=>$person]);
     }
 
@@ -126,7 +125,9 @@ class personController extends Controller
     public function destroy($id)
     {
         $person=Person::findOrFail($id);
-        $person->delete();
+        $person->Activo='no';
+        $person->save();
+
 
         return redirect()->route('person')
         ->with('success', 'Persona Eliminada Correctamente');

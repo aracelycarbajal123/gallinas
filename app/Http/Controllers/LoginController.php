@@ -46,7 +46,8 @@ class LoginController extends Controller
             'password' => 'required|min:5',
             'password'=>'confirmed',
             'email'=>'unique:users',
-            'username'=>'required|min:5|unique:users'
+            'username'=>'required|min:5|unique:users',
+            'rol'=>'required'
 
           
         ], [
@@ -60,6 +61,7 @@ class LoginController extends Controller
             'username.required'=>'El nombre de usuario es requerido',
             'username.min'=>'El usuario debe de tener minimo 5 caracteres',
             'username.unique'=>'El nombre de usuario esta en uso',
+            'rol.required'=>'El rol es requerido'
 
 
         ]);
@@ -73,7 +75,7 @@ class LoginController extends Controller
 
         ]);
 
-        Auth::attempt($request->only('email','password'));
+      //  Auth::attempt($request->only('email','password'));
         return redirect()->route('dashboard');
 
     }

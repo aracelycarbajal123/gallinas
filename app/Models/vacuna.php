@@ -15,6 +15,7 @@ class vacuna extends Model
         'Stockvacuna',
         'Lote',
         'FechaVencimiento',
+        'activo',
        
     ];
 

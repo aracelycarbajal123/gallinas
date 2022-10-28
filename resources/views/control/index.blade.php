@@ -44,10 +44,16 @@ search
     
      
       <td class="d-flex justify-content-around">
-        <a href="#"> <i class="fas fa-pencil-alt text-warning"></i></a>
-        <a href="#"> <i class="fas fa-trash-alt text-danger"></i></a>
 
-      </td>
+        <a href="{{route('control.edit', $control->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
+        <form action="{{route('control.destroy', $control->id)}}" method="POST">
+          @csrf 
+          {{method_field('delete')}}
+          <button type="submit"> <i class="fas fa-trash-alt text-red-500"></i>Delete</button>
+        </form>
+
+
+      </td> 
 
 
 

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('Stockvacuna');
             $table->string('Lote');
             $table->date('FechaVencimiento');
+            $table->string('activo');
+
             $table->timestamps();
         });
     }

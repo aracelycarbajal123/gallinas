@@ -15,6 +15,7 @@ class Control extends Model
         'idvacuna',
         'idaves',
         'cantidad',
+        'activo'
     
     ];
 

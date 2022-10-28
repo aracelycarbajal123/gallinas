@@ -16,7 +16,8 @@ class ComunidadController extends Controller
      */
     public function index()
     {
-        $comunidades=Comunidad::all();
+        $comunidades=Comunidad::where('estado','activo')->get();
+        
 
         return view('comunidad.index',['comunidades'=>$comunidades]);
     }
@@ -128,10 +129,13 @@ class ComunidadController extends Controller
     public function destroy($id)
     {
         $comunidad=Comunidad::findOrFail($id);
-        $comunidad->delete();
+        $comunidad->estado='no';
+        $comunidad->save();
 
 
         return redirect()->route('comunidades')
                     ->with('success', 'Comunidad Eliminada Correctamente');
+
+                 
     }
 }

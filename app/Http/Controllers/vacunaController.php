@@ -15,7 +15,7 @@ class vacunaController extends Controller
      */
     public function index()
     {
-        $vacuna=vacuna::all();
+        $vacuna=vacuna::where('activo','si')->get();
 
         return view('vacuna.index',['vacuna'=>$vacuna]);
     }
@@ -47,6 +47,7 @@ class vacunaController extends Controller
             'Stockvacuna' =>$request->Stockvacuna,
             'Lote' =>$request->Lote,
             'FechaVencimiento' =>$request->FechaVencimiento,
+            'activo'=>'si'
 
         ]);
         return redirect()->route('vacuna');
@@ -93,6 +94,7 @@ class vacunaController extends Controller
             'Stockvacuna' =>['required', 'string'],
             'Lote' =>['required', 'string'],
             'FechaVencimiento' =>['required', 'date'],
+            'activo'=>['string'],
         ]);
 
         try{
@@ -117,7 +119,8 @@ class vacunaController extends Controller
     public function destroy($id)
     {
         $vacuna=vacuna::findOrFail($id);
-        $vacuna->delete();
+        $vacuna->activo='no';
+        $vacuna->save();
 
         return redirect()->route('vacuna')
             ->with('success', 'Vacuna Eliminada Correctamente');

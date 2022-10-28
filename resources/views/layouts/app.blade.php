@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>APP MUNI</title>
+  <title>GALLINAS PONEDORAS</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -47,7 +47,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('dist/img/munilogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">GALLINAS PONEDORAS</span>
     </a>
 
     <!-- Sidebar -->
@@ -112,12 +112,7 @@
               @endif
               {{-- //si el usuario es admin y digitador --}}
               @if (auth()->user()->rol=='admin' || auth()->user()->rol=='digitador')
-              <li class="nav-item">
-                <a href="{{route('users')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Datos de los Usuarios</p>
-                </a>
-              </li>
+             
               <li class="nav-item">
                 <a href="{{route('vacuna')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
