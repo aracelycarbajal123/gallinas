@@ -14,7 +14,7 @@ class AvesController extends Controller
      */
     public function index()
     {
-        $aves=Aves::where('activo','si')->get();
+        $aves=Aves::where('Activo','si')->get();
 
         return view('aves.index',['Aves'=>$aves]);
 
@@ -109,7 +109,7 @@ class AvesController extends Controller
     public function destroy($id)
     {
         $aves=Aves::findOrFail($id);
-        $aves->activo='no';
+        $aves->Activo='no';
         $aves->save();
 
         return redirect()->route('aves')
