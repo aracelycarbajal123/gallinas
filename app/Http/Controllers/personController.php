@@ -15,7 +15,7 @@ class personController extends Controller
      */
     public function index()
     {
-        $person=Person::where('activo','si')->get();
+        $person=Person::where('Activo','si')->get();
        
         return view('person.index',['person'=>$person]);
     }
