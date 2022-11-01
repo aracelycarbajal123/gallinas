@@ -30,8 +30,8 @@
       <th scope="col">Opciones</th>
 
 
-    </tr>.
-  </thead>m
+    </tr>
+  </thead>
   <tbody>
 
     @foreach ($plancalendarios as $plancalendarios )
