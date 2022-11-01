@@ -45,9 +45,7 @@
                     <input type="password" name="password" class="form-control" id="password">
                 </div>
 
-                <div class="mb-5">
-                  <input type="checkbox" name="remember"> <label> Mantener mi sesión abierta </label>
-              </div>
+                
               <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             <!-- /.row -->
