@@ -14,7 +14,7 @@ class AvesController extends Controller
      */
     public function index()
     {
-        $aves=Aves::where('Activo','si')->get();
+        $aves=Aves::where('Activo','SI')->get();
 
         return view('aves.index',['Aves'=>$aves]);
 
