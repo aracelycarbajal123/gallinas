@@ -57,10 +57,7 @@
     <input value="{{old('date')}}" type="date" class="form-control" id="date" name="FechaNacimiento" >
 </div>
 
-<div class="mb-3">
-    <label for="Activo" class="form-label">Activo</label>
-    <input value="{{old('text')}}" type="text" class="form-control" id="text" name="Activo" >
-</div>
+
 
 <div class="mb-3">
     <label for="idComunidad" class="form-label">Comunidad</label>

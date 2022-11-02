@@ -44,11 +44,7 @@
     value="{{$plancalendarios->FechaVacunacion}}"  >
    </div>
  
- <div class="mb-3">
-   <label for="Estado" class="form-label">Estado</label>
-   <input  type="text" class="form-control" id="text" name="Estado" 
-   value="{{$plancalendarios->Estado}}">
-</div>
+
 
 <div class="mb-3">
    <label for="idComunidad" class="form-label">Comunidad</label>

@@ -47,7 +47,7 @@ class PlancalendariosController extends Controller
         //dd($request);
         $plancalendarios=Plancalendarios::create([
             'FechaVacunacion'=>$request->FechaVacunacion,
-            'Estado'=>$request->Estado,
+            'Estado'=>'Si',
             'idComunidad'=>$request->idComunidad,
             'idvacuna'=>$request->idvacuna,
 
@@ -93,7 +93,7 @@ class PlancalendariosController extends Controller
         $plancalendarios=Plancalendarios::findOrFail($id);
         $request->validate([
             'FechaVacunacion'=>['required', 'date'],
-            'Estado'=>['required', 'string', 'max:255'],
+            
             'idComunidad'=>['required'],
             'idvacuna'=>['required'],
 

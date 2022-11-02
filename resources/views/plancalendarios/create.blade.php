@@ -37,10 +37,7 @@
      <input value="{{old('date')}}" type="date" class="form-control"  name="FechaVacunacion" >
     </div>
   
-  <div class="mb-3">
-    <label for="Estado" class="form-label">Estado</label>
-    <input value="{{old('text')}}" type="text" class="form-control" id="text" name="Estado" >
-</div>
+
 
 <div class="mb-3">
     <label for="idComunidad" class="form-label">Comunidad</label>

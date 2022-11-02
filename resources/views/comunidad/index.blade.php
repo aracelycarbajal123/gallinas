@@ -24,7 +24,7 @@
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
       <th scope="col">Ubicacion</th>
-      <th scope="col">Estado</th>
+     
       
       <th scope="col">Opciones</th>
 
@@ -40,7 +40,7 @@
       <th scope="row">{{ $comunidad->id}}</th>
       <td>{{ $comunidad->nombre}}</td>
       <td>{{ $comunidad->localizacion}}</td>
-      <td>{{ $comunidad->estado}}</td>
+     
       <td class="d-flex justify-content-around">
         <a href="{{route('comunidad.edit', $comunidad->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
         <form action="{{route('comunidad.destroy', $comunidad->id)}}" method="POST">

@@ -37,10 +37,6 @@
      <input value="{{old('name')}}" type="text" class="form-control"  name="NombreAve" >
     </div>
   
-  <div class="mb-3">
-    <label for="Activo" class="form-label">Activo</label>
-    <input value="{{old('text')}}" type="text" class="form-control" id="text" name="Activo" >
-</div>
 
  
 

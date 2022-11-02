@@ -22,7 +22,7 @@
       <th scope="col">Dpi</th>
       <th scope="col">Telefono</th>
       <th scope="col">Fecha de Nacimiento</th>
-      <th scope="col">Activo</th>
+      
       <th scope="col">Comunidad</th>
       <th scope="col">Tipo de persona</th>
       
@@ -43,7 +43,7 @@
       <td>{{ $pers->Dpi}}</td>
       <td>{{ $pers->Telefono}}</td>
       <td>{{ $pers->FechaNacimiento}}</td>
-      <td>{{ $pers->Activo}}</td>
+     
       <td>{{ $pers->comunidad->nombre}}</td>
       <td>{{ $pers->Tipopersona}}</td>
 

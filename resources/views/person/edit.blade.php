@@ -66,11 +66,7 @@
     value="{{$person->FechaNacimiento}}" >
 </div>
 
-<div class="mb-3">
-    <label for="Activo" class="form-label">Activo</label>
-    <input type="text" class="form-control" id="text" name="Activo"
-    value="{{$person->Activo}}"  >
-</div>
+
 
 <div class="mb-3">
     <label for="idComunidad" class="form-label">Comunidad</label>

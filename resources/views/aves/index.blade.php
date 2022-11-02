@@ -23,7 +23,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Ave</th>
-      <th scope="col">Activo</th>
+      
       
       
       <th scope="col">Opciones</th>
@@ -39,7 +39,7 @@
     <tr>
       <th scope="row">{{ $aves->id}}</th>
       <td>{{ $aves->NombreAve}}</td>
-      <td>{{ $aves->Activo}}</td>
+    
       
       <td class="d-flex justify-content-around">
         <a href="{{route('aves.edit', $aves->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>

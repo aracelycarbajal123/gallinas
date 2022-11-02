@@ -23,7 +23,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Fecha de vacunacion</th>
-      <th scope="col">Estado</th>
+      
       <th scope="col">Comunidad</th>
       <th scope="col">vacuna</th>
       
@@ -40,7 +40,7 @@
     <tr>
       <th scope="row">{{ $plancalendario->id}}</th>
       <td>{{ $plancalendario->FechaVacunacion}}</td>
-      <td>{{ $plancalendario->Estado}}</td>
+      
       <td>{{ $plancalendario->comunidad->nombre}}</td>
       <td>{{ $plancalendario->vacuna->Nombre_vacuna}}</td>
     
