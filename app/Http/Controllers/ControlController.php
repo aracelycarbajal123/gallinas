@@ -20,7 +20,7 @@ class ControlController extends Controller
     {
         
         $controls=Control::where('activo','si')->get();
-        return view('control.index',['control'=>$controls]);
+        return view('control.index',['controls'=>$controls]);
         
     }
 

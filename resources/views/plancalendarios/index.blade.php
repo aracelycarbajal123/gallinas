@@ -34,19 +34,19 @@
   </thead>
   <tbody>
 
-    @foreach ($plancalendario as $plancalendarios )
+    @foreach ($plancalendarios as $plancalendario )
    
 
     <tr>
-      <th scope="row">{{ $plancalendarios->id}}</th>
-      <td>{{ $plancalendarios->FechaVacunacion}}</td>
-      <td>{{ $plancalendarios->Estado}}</td>
-      <td>{{ $plancalendarios->comunidad->nombre}}</td>
-      <td>{{ $plancalendarios->vacuna->Nombre_vacuna}}</td>
+      <th scope="row">{{ $plancalendario->id}}</th>
+      <td>{{ $plancalendario->FechaVacunacion}}</td>
+      <td>{{ $plancalendario->Estado}}</td>
+      <td>{{ $plancalendario->comunidad->nombre}}</td>
+      <td>{{ $plancalendario->vacuna->Nombre_vacuna}}</td>
     
       <td class="d-flex justify-content-around">
-        <a href="{{route('plancalendarios.edit', $plancalendarios->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
-        <form action="{{route('plancalendarios.destroy', $plancalendarios->id)}}" method="POST">
+        <a href="{{route('plancalendarios.edit', $plancalendario->id)}}"> <i class="fas fa-pencil-alt text-warning"></i>Edit</a>
+        <form action="{{route('plancalendarios.destroy', $plancalendario->id)}}" method="POST">
           @csrf 
           {{method_field('delete')}}
           <button type="submit"> <i class="fas fa-trash-alt text-red-500"></i>Delete</button>
