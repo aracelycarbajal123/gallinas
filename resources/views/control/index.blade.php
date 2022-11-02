@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-6">
-
+    <a class="btn btn-primary" href="{{ route('/control.crearpdf') }}">Generar  PDF</a>
   </div>
   <div class="col-lg-6 d-flex justify-content-end">
 <a href="{{route('control.create')}}" class="btn btn-info text-white">Nueva Asistencia</a>

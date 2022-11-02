@@ -99,11 +99,14 @@ Route::delete('/Plancalendarios/{id}',[PlancalendariosController::class,'destroy
 
 //control
 Route::get('/control',[ControlController::class,'index'])->middleware('auth')->name('control');
+Route::get('/control',[ControlController::class,'index'])->middleware('auth')->name('control');
+
 Route::get('/control/create',[ControlController::class,'create'])->middleware('auth')->name('control.create');
 Route::post('/control/create',[ControlController::class,'store'])->name('control.store');
 Route::get('/control/{id}/edit',[ControlController::class,'edit'])->middleware('auth')->name('control.edit');
 Route::put('/control/{id}',[ControlController::class,'update'])->name('control.update');
 Route::delete('/control/{id}',[ControlController::class,'destroy'])->name('control.destroy');
+Route::get('/control/pdf', [ControlController::class, 'createPDF'])->name('/control.crearpdf');
 
 
 

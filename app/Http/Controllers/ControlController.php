@@ -8,6 +8,8 @@ use App\Models\Control;
 use App\Models\Person;
 use App\Models\vacuna;
 use Illuminate\Http\Request;
+use PDF;
+use Keygen\Keygen;
 
 class ControlController extends Controller
 {
@@ -150,4 +152,18 @@ class ControlController extends Controller
 
 
     }
+
+    public function createPDF() {
+        //  dd('llamando pdf..');
+          // // retreive all records from db
+          $data=Control::where('activo','si')->get();
+          // // share data to view
+         $keygen= Keygen::numeric(12)->generate();
+          view()->share('control',$data);
+          $pdf=Pdf::loadview('control.viewpdf',['data'=>$data,'keygen'=>$keygen]);
+           //$pdf = PDF::loadView('pdf_view', $data);
+          // // download PDF file with download method
+           return $pdf->download('control.pdf');
+        }
+  
 }
