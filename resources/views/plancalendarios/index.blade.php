@@ -34,7 +34,7 @@
   </thead>
   <tbody>
 
-    @foreach ($plancalendarios as $plancalendarios )
+    @foreach ($plancalendario as $plancalendarios )
    
 
     <tr>
