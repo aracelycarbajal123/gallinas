@@ -50,7 +50,7 @@ class ControlController extends Controller
     {
      
 
-        $control=Control::create([
+        $controls=Control::create([
             'idperson'=>$request->idperson,
             'idComunidad'=>$request->idComunidad,
             'idvacuna'=>$request->idvacuna,

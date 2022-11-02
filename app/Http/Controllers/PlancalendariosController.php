@@ -16,10 +16,10 @@ class PlancalendariosController extends Controller
      */
     public function index()
     {
-        $plancalendarios=Plancalendarios::where('Estado','Si')->get();
+        $plancalendario=Plancalendarios::where('Estado','Si')->get();
        
         
-        return view('plancalendarios.index',['plancalendarios'=>$plancalendarios]);
+        return view('plancalendarios.index',['plancalendarios'=>$plancalendario]);
     }
 
     /**
