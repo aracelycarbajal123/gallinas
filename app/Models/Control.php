@@ -20,7 +20,7 @@ class Control extends Model
     ];
 
     public function person(){
-        return $this->belongsTo(person::class, 'idperson');
+        return $this->belongsTo(Person::class, 'idperson');
         
     }
 
@@ -33,7 +33,7 @@ class Control extends Model
     }
 
     public function aves(){
-        return $this->belongsTo(aves::class,'idaves');
+        return $this->belongsTo(Aves::class,'idaves');
     }
 
  
