@@ -30,7 +30,7 @@
   </thead>
   <tbody>
 
-    @foreach ($control as $control )
+    @foreach ($controls as $control )
    
 
     <tr>

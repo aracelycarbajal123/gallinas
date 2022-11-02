@@ -18,8 +18,9 @@ class ControlController extends Controller
      */
     public function index()
     {
-        $control=Control::where('activo','si')->get();
-        return view('control.index',['control'=>$control]);
+        
+        $controls=Control::where('activo','si')->get();
+        return view('control.index',['control'=>$controls]);
         
     }
 
@@ -47,6 +48,8 @@ class ControlController extends Controller
      */
     public function store(Request $request)
     {
+     
+
         $control=Control::create([
             'idperson'=>$request->idperson,
             'idComunidad'=>$request->idComunidad,

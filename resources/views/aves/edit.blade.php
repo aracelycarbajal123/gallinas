@@ -40,8 +40,7 @@
      <label for="NombreAve" class="form-label">Ave</label>
      <input  type="text" class="form-control"  name="NombreAve" 
      value="{{$aves->NombreAve}}">
-
-    </div>
+      </div>
   
 
 
