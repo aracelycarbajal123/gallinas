@@ -37,7 +37,7 @@
 
 
     <div class="mb-3">
-     <label for="NombreAve" class="form-label">Ave</label>
+     <label for="NombreAve" class="form-label">RAZA DE GALLINA</label>
      <input  type="text" class="form-control"  name="NombreAve" 
      value="{{$aves->NombreAve}}">
       </div>

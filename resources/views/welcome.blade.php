@@ -8,4 +8,6 @@
       </div>
   </div>
 </div>
+<body>
+<img src="{{public_path('dist/img/munilogo.png' )}}" width="150px" alt="" style="float: right;" ></body>
 @endsection

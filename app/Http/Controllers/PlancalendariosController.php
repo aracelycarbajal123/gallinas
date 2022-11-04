@@ -6,6 +6,8 @@ use App\Models\Comunidad;
 use App\Models\Plancalendarios;
 use App\Models\vacuna;
 use Illuminate\Http\Request;
+use PDF;
+use Keygen\Keygen;
 
 class PlancalendariosController extends Controller
 {
@@ -131,4 +133,17 @@ class PlancalendariosController extends Controller
             ->with('success', 'Plan Eliminado Correctamente');
 
     }
+
+    public function createPDF() {
+        //  dd('llamando pdf..');
+          // // retreive all records from db
+          $data=Plancalendarios::where('Estado','si')->get();
+          // // share data to view
+         $keygen= Keygen::numeric(12)->generate();
+          view()->share('plancalendario',$data);
+          $pdf=Pdf::loadview('plancalendarios.viewpdf',['data'=>$data,'keygen'=>$keygen]);
+           //$pdf = PDF::loadView('pdf_view', $data);
+          // // download PDF file with download method
+           return $pdf->download('plancalendarios.pdf');
+        }
 }

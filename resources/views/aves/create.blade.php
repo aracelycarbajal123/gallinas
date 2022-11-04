@@ -33,7 +33,7 @@
 
 
     <div class="mb-3">
-     <label for="NombreAve" class="form-label">Ave</label>
+     <label for="NombreAve" class="form-label">RAZA DE GALLINA</label>
      <input value="{{old('name')}}" type="text" class="form-control"  name="NombreAve" >
     </div>
   

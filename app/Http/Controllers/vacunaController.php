@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\vacuna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PDF;
+use Keygen\Keygen;
 
 class vacunaController extends Controller
 {
@@ -126,5 +128,18 @@ class vacunaController extends Controller
             ->with('success', 'Vacuna Eliminada Correctamente');
 
     }
+
+    public function createPDF() {
+        //  dd('llamando pdf..');
+          // // retreive all records from db
+          $data=vacuna::where('activo','si')->get();
+          // // share data to view
+         $keygen= Keygen::numeric(12)->generate();
+          view()->share('vacuna',$data);
+          $pdf=Pdf::loadview('vacuna.viewpdf',['data'=>$data,'keygen'=>$keygen]);
+           //$pdf = PDF::loadView('pdf_view', $data);
+          // // download PDF file with download method
+           return $pdf->download('vacuna.pdf');
+        }
 }
 

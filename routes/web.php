@@ -65,6 +65,7 @@ Route::post('/comunidad/create', [ComunidadController::class,'store'])->name('co
 Route::get('/comunidad/{id}/edit', [ComunidadController::class,'edit'])->middleware('auth')->name('comunidad.edit');
 Route::put('/comunidad/{id}', [ComunidadController::class,'update'])->name('comunidad.update');
 Route::delete('/comunidad/{id}', [ComunidadController::class,'destroy'])->name('comunidad.destroy');
+Route::get('/comunidad/pdf', [ComunidadController::class, 'createPDF'])->name('/comunidad.crearpdf');
 
 //Vacuna
 Route::get('/vacuna',[vacunaController::class,'index'])->middleware('auth')->name('vacuna');
@@ -73,6 +74,7 @@ Route::post('/vacuna/create',[vacunaController::class, 'store'])->name('vacuna.s
 Route::get('/vacuna/{id}/edit', [vacunaController::class,'edit'])->middleware('auth')->name('vacuna.edit');
 Route::put('/vacuna/{id}',[vacunaController::class,'update'])->name('vacuna.update');
 Route::delete('/vacuna/{id}',[vacunaController::class,'destroy'])->name('vacuna.destroy');
+Route::get('/vacuna/pdf', [vacunaController::class, 'createPDF'])->name('/vacuna.crearpdf');
 
 //personas
 Route::get('/person',[personController::class,'index'])->middleware('auth')->name('person');
@@ -81,6 +83,7 @@ Route::post('/person/create',[personController::class,'store'])->name('person.st
 Route::get('/person/{id}/edit',[personController::class,'edit'])->middleware('auth')->name('person.edit');
 Route::put('/person/{id}',[personController::class,'update'])->name('person.update');
 Route::delete('/person/{id}',[personController::class,'destroy'])->name('person.destroy');
+Route::get('/person/pdf', [personController::class, 'createPDF'])->name('/person.crearpdf');
 //aves
 Route::get('/aves',[AvesController::class,'index'])->middleware('auth')->name('aves');
 Route::get('/aves/create',[AvesController::class,'create'])->middleware('auth')->name('aves.create');
@@ -88,6 +91,7 @@ Route::post('/aves/create',[AvesController::class,'store'])->name('aves.store');
 Route::get('/aves/{id}/edit', [AvesController::class,'edit'])->middleware('auth')->name('aves.edit');
 Route::put('/aves/{id}',[AvesController::class,'update'])->name('aves.update');
 Route::delete('/aves/{id}',[AvesController::class,'destroy'])->name('aves.destroy');
+Route::get('/aves/pdf', [AvesController::class, 'createPDF'])->name('/aves.crearpdf');
 
 //planificacion de calendarios
 Route::get('/plancalendarios',[PlancalendariosController::class,'index'])->middleware('auth')->name('plancalendarios');
@@ -96,6 +100,7 @@ Route::post('/plancalendarios/create',[PlancalendariosController::class,'store']
 Route::get('/plancalendarios/{id}/edit',[PlancalendariosController::class,'edit'])->middleware('auth')->name('plancalendarios.edit');
 Route::put('/Plancalendarios/{id}',[PlancalendariosController::class,'update'])->name('plancalendarios.update');
 Route::delete('/Plancalendarios/{id}',[PlancalendariosController::class,'destroy'])->name('plancalendarios.destroy');
+Route::get('/Plancalendarios/pdf', [PlancalendariosController::class, 'createPDF'])->name('/plancalendarios.crearpdf');
 
 //control
 Route::get('/control',[ControlController::class,'index'])->middleware('auth')->name('control');

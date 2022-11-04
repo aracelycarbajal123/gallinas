@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comunidad;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use PDF;
+use Keygen\Keygen;
 
 class personController extends Controller
 {
@@ -132,4 +134,19 @@ class personController extends Controller
        
 
     }
+
+    public function createPDF() {
+        //  dd('llamando pdf..');
+          // // retreive all records from db
+          $data=person::where('Activo','si')->get();
+          // // share data to view
+         $keygen= Keygen::numeric(12)->generate();
+          view()->share('person',$data);
+          $pdf=Pdf::loadview('person.viewpdf',['data'=>$data,'keygen'=>$keygen]);
+           //$pdf = PDF::loadView('pdf_view', $data);
+          // // download PDF file with download method
+           return $pdf->download('person.pdf');
+        }
+
+
 }

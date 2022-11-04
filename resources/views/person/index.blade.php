@@ -1,13 +1,13 @@
 @extends('layouts.app', ['activePage' => 'person', 'titlePage' => __('person')])
 
 @section('header')
-<h2>LISTADO DE PERSONAS</h2>
+<h2>LISTADO DE BENEFICIARIOS</h2>
 @endsection
 
 @section('content')
 <div class="row">
   <div class="col-lg-6">
-
+    <a class="btn btn-primary" href="{{ route('/person.crearpdf') }}">Generar  PDF</a>
   </div>
   <div class="col-lg-6 d-flex justify-content-end">
 <a href="{{route('person.create')}}" class="btn btn-info text-white">Nueva Persona </a>

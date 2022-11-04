@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Aves;
 use Illuminate\Http\Request;
+use PDF;
+use Keygen\Keygen;
 
 class AvesController extends Controller
 {
@@ -48,7 +50,7 @@ class AvesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -118,4 +120,16 @@ class AvesController extends Controller
     
         
     }
+    public function createPDF() {
+        //  dd('llamando pdf..');
+          // // retreive all records from db
+          $data=Aves::where('Activo','si')->get();
+          // // share data to view
+         $keygen= Keygen::numeric(12)->generate();
+          view()->share('aves',$data);
+          $pdf=Pdf::loadview('aves.viewpdf',['data'=>$data,'keygen'=>$keygen]);
+           //$pdf = PDF::loadView('pdf_view', $data);
+          // // download PDF file with download method
+           return $pdf->download('aves.pdf');
+        }
 }

@@ -55,6 +55,7 @@
                     <label for="password_confirmation" class="form-label">Confirmar Contraseña</label>
                     <input  type="password" name="password_confirmation" class="form-control" id="password">
                 </div>
+                
                
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>

@@ -8,6 +8,7 @@
 <div class="row">
   <div class="col-lg-6">
 
+    <a class="btn btn-primary" href="{{ route('/comunidad.crearpdf') }}">Generar  PDF</a>
   </div>
   <div class="col-lg-6 d-flex justify-content-end">
 <a href="{{route('comunidad.create')}}" class="btn btn-info text-white">Nueva comunidad</a>

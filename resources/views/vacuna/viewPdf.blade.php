@@ -18,21 +18,23 @@
     <span class style=" font-weight: 900;color: #0e2fb5">MUNICIPALIDAD DE GUAZACAPÁN </span>
     <P style=" font-weight: 900;color: #0e2fb5" >PROGRAMA MUNICIPAL GALLINAS PONEDORAS</P>
     
-    </div>    
+    </div>
     <div class="col-6">
         <table class="table table-bordered border-secondary">
             <thead>
                 <tr>
                   <th scope="col">#REPORTE</th>
-                  
                   <th scope="col">FECHA</th>
+                 
                   <th scope="col">FIRMA</th>
+                 
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">{{ substr($keygen, 0, 4)  }}</th>
-               
+                  
+                  
                   <td> {{\Carbon\Carbon::now()->toDateString()}}</td>
                   <td>____________________</td>
                 </tr>
@@ -43,42 +45,45 @@
     </div>
  <div class="container p-5">
  
-
    </div>
-   <h3 class="alert alert-dark ">CONTROL DE ASISTENCIA DE VACUNACIÓN</h3>
-  
+   <h3 class="alert alert-secondary ">LOTES DE VACUNAS</h3>
   <table class="table table-striped ">
     <thead class="alert alert-secondary">
         <tr class="border border-secondary">
           <th class="fs-6 border border-secondary">ID</th>
-          <th class="fs-6 border border-secondary">BENEFICIARIO</th>
-          <th class="fs-6 border border-secondary">COMUNIDAD</th>
-          <th class="fs-6 border border-secondary">VACUNA</th>
-          {{-- <th class="fs-6 border border-secondary">EDAD</th> --}}
-          <th class="fs-6 border border-secondary">AVES</th>
-          <th class="fs-6 border border-secondary">CANTIDAD</th>
 
+          <th class="fs-6 border border-secondary">NOMBRE DE VACUNA</th>
+
+          <th class="fs-6 border border-secondary">FECHA DE INGRESO</th>
+
+          <th class="fs-6 border border-secondary">STOCK</th>
+
+          <th class="fs-6 border border-secondary">LOTE</th>
+
+          <th class="fs-6 border border-secondary">FECHA DE VENCIMIENTO</th>
+         
+         
           
 
         </tr>
     </thead>
     <tbody id="todos-list" name="todos-list">
-        @foreach ($data as $control)
+        @foreach ($data as $vacuna)
         <tr>
-        <th scope="row">{{ $control->id}}</th>
-        <td>{{ $control->person->Nombres}} {{$control->person->Apellidos}}</td>
-        <td>{{ $control->comunidad->nombre}}</td>
-        <td>{{ $control->vacuna->Nombre_vacuna}}</td>
-        <td>{{ $control->aves->NombreAve}}</td>
-        <td>{{ $control->cantidad}}</td>
+       
+        <th scope="row">{{ $vacuna->id}}</th>
+        <td>{{ $vacuna->Nombre_vacuna}}</td>
+        <td>{{ $vacuna->Fecha_ingresovacuna}}</td>
+        <td>{{ $vacuna->Stockvacuna}}</td>
+        <td>{{ $vacuna->Lote}}</td>
+         <td>{{ $vacuna->FechaVencimiento}}</td>
+      
     </tr>
         @endforeach
     </tbody>
 </table>
 
- </div>
- 
+ </div>      
 
- 
 </body>
 </html>

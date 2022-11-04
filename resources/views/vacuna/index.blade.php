@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-6">
-
+    <a class="btn btn-primary" href="{{ route('/vacuna.crearpdf') }}">Generar  PDF</a>
   </div>
   <div class="col-lg-6 d-flex justify-content-end">
 <a href="{{route('vacuna.create')}}" class="btn btn-info text-white">Nuevo Lote de Vacuna</a>

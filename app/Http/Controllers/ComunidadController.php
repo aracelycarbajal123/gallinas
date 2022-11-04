@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comunidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PDF;
+use Keygen\Keygen;
 
 
 class ComunidadController extends Controller
@@ -138,4 +140,17 @@ class ComunidadController extends Controller
 
                  
     }
+
+    public function createPDF() {
+        //  dd('llamando pdf..');
+          // // retreive all records from db
+          $data=Comunidad::where('estado','activo')->get();
+          // // share data to view
+         $keygen= Keygen::numeric(12)->generate();
+          view()->share('comunidad',$data);
+          $pdf=Pdf::loadview('comunidad.viewpdf',['data'=>$data,'keygen'=>$keygen]);
+           //$pdf = PDF::loadView('pdf_view', $data);
+          // // download PDF file with download method
+           return $pdf->download('comunidad.pdf');
+        }
 }

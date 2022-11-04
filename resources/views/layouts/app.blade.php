@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition  sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -23,15 +24,16 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-light" style="background-color: #1b75f4;">
     <!-- Left navbar links -->
+    
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
      
       <div class="card-header">
-        <h5 class="card-title">PROGRAMA MUNICIPAL GALLINAS PONEDORAS</h5>      
+        <h5 class="card-title ">PROGRAMA MUNICIPAL GALLINAS PONEDORAS</h5>      
       </div>
       
     </ul>
@@ -42,7 +44,8 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-blue elevation-4 ">
+    
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('dist/img/munilogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -103,6 +106,7 @@
               @endif--}}
               {{-- //si el usuario es admin y digitador --}}
              {{-- // @if (auth()->user()->rol=='admin' || auth()->user()->rol=='digitador')--}}
+            
              
               <li class="nav-item">
                 <a href="{{route('vacuna')}}" class="nav-link">
@@ -213,7 +217,7 @@
     <strong>Gallinas Ponedoras &copy; 2022 <a href="https://adminlte.io">Marlen Aracely Carbajal Pérez</a>.</strong>
    
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <b>Version</b> 1.0
     </div>
   </footer>
 </div>

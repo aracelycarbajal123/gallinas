@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-6">
-
+    <a class="btn btn-primary" href="{{ route('/aves.crearpdf') }}">Generar  PDF</a>
   </div>
   <div class="col-lg-6 d-flex justify-content-end">
 <a href="{{route('aves.create')}}" class="btn btn-info text-white">Nuevo ingreso de Ave</a>
@@ -22,7 +22,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Ave</th>
+      <th scope="col">RAZA DE GALLINA</th>
       
       
       
