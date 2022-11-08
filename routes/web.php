@@ -55,6 +55,7 @@ Route::post('/register', [LoginController::class, 'store'])->name('register.stor
 Route::get('/users', [UserController::class,'index'])->middleware('auth')->name('users');
 Route::get('/users/create', [UserController::class,'create'])->middleware('auth')->name('users.create');
 Route::get('/users/{id}/edit', [UserController::class,'edit'])->middleware('auth')->name('users.edit');
+Route::post('/users/create', [UserController::class,'store'])->name('users.store');
 Route::put('/users/{id}', [UserController::class,'update'])->name('users.update');
 Route::delete('/users/{id}', [UserController::class,'destroy'])->name('users.destroy');
 

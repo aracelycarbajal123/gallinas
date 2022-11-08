@@ -59,18 +59,14 @@
           <label class="input-group-text" for="rol">Options</label>
         </div>
         <select name="rol" class="custom-select" id="rol">
-            @if ($user->rol=='beneficiario')
-            <option selected value="beneficiario">Beneficiario</option>
-            <option  value="digitador">Digitador</option>
-            <option value="admin">Admin</option>
-            @elseif ( $user->rol=='digitador')
-            <option selected value="digitador">Digitador</option>
-            <option  value="beneficiario">Beneficiario</option>
-            <option value="admin">Admin</option>
-            @else
+            @if ($user->rol=='admin')
             <option selected value="admin">Administrador</option>
             <option  value="digitador">Digitador</option>
-            <option  value="beneficiario">Beneficiario</option>
+
+            @elseif ( $user->rol=='digitador')
+            <option selected value="digitador">Digitador</option>
+            <option value="admin">Admin</option>
+           
 
             @endif
           {{-- @if ($user=='admin') --}}

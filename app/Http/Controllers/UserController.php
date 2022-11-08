@@ -15,13 +15,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $users=User::where('Activo', 'si')->get();
 
+        return view('users.index',['users'=>$users]);
     }
 
-    public function dashboard()
+
+   /* public function dashboard()
     {
-        
+        if(auth()->user()){
+            $users=User::all();
+            return view('dashboard');
+
+        }else{
+            return view('auth.login');
+        }
     }
 
     /**
@@ -47,18 +55,19 @@ class UserController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'username' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'email_verified_at' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
-                
-                
-            ]);
-             $User=User::create([
+                'rol'=>['required'],
+                ]
+            );
+    //    dd($request);
+            
+             $user=User::create([
                 'name' => $request->name,
                 'username'=>$request->username,
                 'email' => $request->email,
-                'email_verified_at'=> $request->email_verified_at,
                 'password' => Hash::make($request->password),
-                'rol'=>$request->rol
+                'rol'=>$request->rol,
+                'Activo'=> 'si',
                 
             ]);
     return redirect()->route('users')->with('success', 'creado correctament!s');
@@ -109,17 +118,26 @@ class UserController extends Controller
     {
         $user=User::findOrFail($id);
 
+      //  dd($user);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'email_verified_at' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'email_verified_at' => [ 'string', 'email', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'Activo'=>['string'],
               
         ]);
 
         try {
-            $user->update($request->all());
+          //  dd($request);
+          //  $user->update($request->all());
+          $user->name=$request->name;
+          $user->username=$request->username;
+          $user->email=$request->email;
+          $user->password=Hash::make($request->password);
+          $user->save();
+
             return redirect()->route('users')
                         ->with('success', 'Usuario Actualizado');
         } catch (\Throwable $th) {
@@ -137,9 +155,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user=User::findOrFail($id);
-        $user->delete();
+        $user->activo='no';
+        $user->save();
 
         return redirect()->route('users')
                         ->with('success', 'Usuario eliminado Satisfactoriamente!');
     }
+    
 }

@@ -18,7 +18,7 @@
     </div>
 
     <div class="card-body">
-<form method="POST" action="{{route('register')}}">
+<form method="POST" action="{{route('users.store')}}">
     @csrf
     @if ($errors->any())
   <div class="alert alert-danger">

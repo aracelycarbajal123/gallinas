@@ -105,8 +105,13 @@
               </li>
               @endif--}}
               {{-- //si el usuario es admin y digitador --}}
-             {{-- // @if (auth()->user()->rol=='admin' || auth()->user()->rol=='digitador')--}}
-            
+              @if (auth()->user()->rol=='admin')
+             <li class="nav-item">
+              <a href="{{route('users')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Usuario</p>
+              </a>
+            </li>
              
               <li class="nav-item">
                 <a href="{{route('vacuna')}}" class="nav-link">
@@ -128,11 +133,11 @@
                 </a>
               </li>
               {{-- //si el usuario es admin y digitador --}}
-              {{-- // @endif--}}
+              
 
               {{-- //solo administrador --}}
-            
-             {{-- // @if (auth()->user()->username=='admin2') --}}
+        
+               
              <li class="nav-item">
                 <a href="{{route('plancalendarios')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -140,7 +145,7 @@
                 </a>
               </li>
              
-            <li class="nav-item">
+              <li class="nav-item">
                 <a href="{{route('comunidades')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Comunidades</p>
@@ -153,7 +158,29 @@
                   <p>Aves</p>
                 </a>
               </li>
-             {{-- //@endif --}}  
+            @endif 
+
+             @if (auth()->user()->rol=='digitador' )
+             <li class="nav-item">
+              <a href="{{route('vacuna')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lotes de Vacunas</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('control')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Control de asistencia de vacunacion</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('person')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Persona</p>
+              </a>
+            </li>
+            @endif 
 
               
                 

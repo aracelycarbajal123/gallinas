@@ -26,24 +26,30 @@
 
     </tr>
   </thead>
-  <tbody>
+   <tbody>
 
-    @foreach ($users as $key=> $user )
-      
-   
+ @foreach ($users as $key=> $user )
     <tr>
       <th scope="row">{{ $key}}</th>
+   
       <td>{{ $user->name}}</td>
       <td>{{ $user->username}}</td>
       <td>{{ $user->email}}</td>
       <td>{{ $user->rol}}</td>
       <td class="d-flex justify-content-around">
-        <a href="{{route('users.edit', $user->id)}}"> <i class="fas fa-pencil-alt text-warning"></i></a>
-        <a href="#"> <i class="fas fa-trash-alt text-danger"></i></a>
+        <a href="{{route('users.edit', $user->id)}}"> <i class="fas fa-pencil-alt text-warning">Edit</i></a>
+        <form action="{{route('users.destroy', $user->id)}}" method="POST">
+          @csrf 
+          {{method_field('delete')}}
+          <button type="submit"> <i class="fas fa-trash-alt text-red-500"></i>Delete</button>
+        </form>
+   
+        
 
       </td>
 
-
+    
+      
 
     </tr>
     @endforeach
