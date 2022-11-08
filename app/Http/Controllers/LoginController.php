@@ -84,7 +84,7 @@ class LoginController extends Controller
 
     //muestra o redirige al dashboard
     public function dashboard(){
-        return view('layouts.app');
+        return view('dashboard');
     }
 
     //cierra sesion
