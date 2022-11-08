@@ -28,18 +28,19 @@ class LoginController extends Controller
 
     public function register(){
 
-        if(!auth()->user()){
+      /*  if(!auth()->user()){
             return view('auth.register');
 
         }
         if(auth()->user()->rol =='admin'|| auth()->user()->rol=='digitador'||auth()->user()->rol=='beneficiario' ){
             return redirect()->route('dashboard');
-        }
+        }*/
         
-        
+        return view('auth.register');
     }
 //regisgrar un usuario
     public function store(Request $request){
+
 
        $request->validate([
             'name' => 'required|min:5',
@@ -72,6 +73,7 @@ class LoginController extends Controller
             'password'=>Hash::make($request->password),
             'username'=>$request->username,
             'rol'=>$request->rol,
+            'Activo'=>"si"
 
         ]);
 

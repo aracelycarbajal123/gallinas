@@ -50,6 +50,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+     
         try {
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
@@ -59,7 +60,7 @@ class UserController extends Controller
                 'rol'=>['required'],
                 ]
             );
-    //    dd($request);
+      
             
              $user=User::create([
                 'name' => $request->name,
@@ -67,8 +68,7 @@ class UserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'rol'=>$request->rol,
-                'Activo'=> 'si',
-                
+                'Activo'=> "si",                
             ]);
     return redirect()->route('users')->with('success', 'creado correctament!s');
             
@@ -125,7 +125,7 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'email_verified_at' => [ 'string', 'email', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'Activo'=>['string'],
+          
               
         ]);
 
@@ -136,6 +136,7 @@ class UserController extends Controller
           $user->username=$request->username;
           $user->email=$request->email;
           $user->password=Hash::make($request->password);
+          $user->Activo='si';
           $user->save();
 
             return redirect()->route('users')

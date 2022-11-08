@@ -105,7 +105,7 @@
               </li>
               @endif--}}
               {{-- //si el usuario es admin y digitador --}}
-              @if (auth()->user()->rol=='admin')
+             {{-- //@if (auth()->user()->rol=='admin')--}}
              <li class="nav-item">
               <a href="{{route('users')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
@@ -158,29 +158,11 @@
                   <p>Aves</p>
                 </a>
               </li>
-            @endif 
+            {{-- // @endif--}} 
 
-             @if (auth()->user()->rol=='digitador' )
-             <li class="nav-item">
-              <a href="{{route('vacuna')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Lotes de Vacunas</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('control')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Control de asistencia de vacunacion</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{route('person')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Persona</p>
-              </a>
-            </li>
-            @endif 
+              {{-- //@if (user()->rol=='digitador' )--}}
+           
+           {{-- // @endif --}}
 
               
                 

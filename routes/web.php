@@ -48,7 +48,7 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/aves', [AveController::class, 'index'])->middleware('auth')->name('aves');
 
 //register
-Route::get('/register', [LoginController::class, 'register'])->middleware('auth')->name('register');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'store'])->name('register.store');
 
 //user
