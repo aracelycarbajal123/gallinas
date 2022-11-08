@@ -33,7 +33,7 @@
       </li>
      
       <div class="card-header">
-        <h5 class style="card-title; font-weight: 900 ">PROGRAMA MUNICIPAL GALLINAS PONEDORAS</h5>      
+        <h5 class style="card-title; font-weight: 900 ">OFICINA MUNICIPAL DE SEGURIDAD ALIMENTARIA Y NUTRICIONAL - PROGRAMA GALLINAS PONEDORAS</h5>      
       </div>
       
     </ul>
